@@ -1,0 +1,28 @@
+.page {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.page body {
+  margin: 0;
+  min-height: 100%;
+  color: $white;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  align-content: start;
+  background-color: $blue;
+}
+
+.page main {
+  overflow: hidden;
+}
+
+.page a {
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:focus {
+    opacity: 0.7;
+  }
+}

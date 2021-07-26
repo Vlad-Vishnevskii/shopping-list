@@ -1,0 +1,46 @@
+.todo-input  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.todo-input__field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.todo-input__field input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: $dark-blue;
+    border: none;
+    color: $white;
+    font-size: 18px;
+    outline: none;
+}
+
+.todo-input__field select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: $dark-blue;
+    border: none;
+    color: $white;
+    outline: none;
+    font-size: 18px;
+}
+
+.todo-input__add-button {
+    width: 50%;
+    padding: 10px;
+    margin-top: 30px;
+    background-color: $white;
+    border-radius: 10px;
+    background-color: $dark-blue;
+    border: none;
+    color: $white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
