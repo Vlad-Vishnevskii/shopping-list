@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 .todo-input__field {
@@ -32,15 +32,22 @@
     font-size: 18px;
 }
 
-.todo-input__add-button {
-    width: 50%;
+.todo-input__add-button,
+.todo-input__reset-button {
+    width: 60%;
     padding: 10px;
     margin-top: 30px;
-    background-color: $white;
     border-radius: 10px;
-    background-color: $dark-blue;
+    background: radial-gradient(133.33% 2508.35% at -4.59% -10%, #32E6FF 0%, rgba(0, 255, 209, 0.81) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #5FFFCF 100%), #43E8FF;
     border: none;
     color: $white;
     text-transform: uppercase;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.todo-input__reset-button {
+  background: linear-gradient(124.04deg, rgba(182, 26, 255, 0.5) -6.27%, rgba(0, 26, 255, 0.5) 98.36%), #656CFF;
 }

@@ -11,39 +11,74 @@
   const todoList = document.querySelector('.todo-list');
   const fieldSelect = document.querySelector('.todo-input__field_select');
   const select = fieldSelect.querySelector('select');
+  const clearButton = document.querySelector('.todo-input__reset-button');
 
-  console.log(select)
+
+  const renderPage = function (element, item) {
+    if (localStorage.getItem(item) !== null) {
+      element.innerHTML = localStorage.getItem(item);
+    }
+  }
+
+  const saveElement = function (element, item) {
+    const parsed = element.innerHTML;
+    localStorage.setItem(item, parsed);
+  }
+
+  const clearToDo = function () {
+    localStorage.clear();
+    location.reload();
+  }
+
+  renderPage(todoList, 'shopping-list');
+
+
+  const onTodoListClick = function (evt) {
+    const target = evt.target;
+    const currentItem = target.closest('.todo-list__item')
+    if (target.closest('.todo-list__del-btn')) {
+      currentItem.remove();
+    }
+
+    if (target.closest('.todo-list__complete-btn')) {
+      currentItem.classList.toggle('todo-list__item_completed');
+    }
+  }
+
+  todoList.addEventListener('click', onTodoListClick)
 
   const addItem = function () {
+    var valueSelect = select.value;
     const item = itemTemplate.cloneNode(true);
-    if (todoInput.value != '') {
-      item.textContent = todoInput.value;
+    const itemText = item.querySelector(".todo-list__item-text");
+      if (todoInput.value != '') {
+        itemText.textContent = todoInput.value;
+        const fragment = document.createDocumentFragment();
+        fragment.appendChild(item);
+        todoList.appendChild(fragment);
+      }
 
-      const fragment = document.createDocumentFragment();
-      fragment.appendChild(item);    
-      todoList.appendChild(fragment);
-    }  
+      if (valueSelect != 0) {
+        itemText.textContent = valueSelect;
+        const fragment = document.createDocumentFragment();
+        fragment.appendChild(item);
+        todoList.appendChild(fragment);
+      }
 
-    // if () {
-
-    // }
-
-    var value = select.value;
-    console.log(value);
-
-    
-    
-  
-    
+    saveElement(todoList, 'shopping-list');
   }
 
   const onFormSubmit = function (evt) {
     evt.preventDefault();
-    addItem();    
+    addItem();
     form.reset();
   }
-  
+
+  const onClearBtnClick = function () {
+    clearToDo();
+  }
+
   form.addEventListener('submit', onFormSubmit);
-  
+  clearButton.addEventListener('click', onClearBtnClick);
 
 })();
