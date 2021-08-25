@@ -38,10 +38,12 @@
     const currentItem = target.closest('.todo-list__item')
     if (target.closest('.todo-list__del-btn')) {
       currentItem.remove();
+      saveElement(todoList, 'shopping-list');
     }
 
-    if (target.closest('.todo-list__complete-btn')) {
+    if (target.closest('.todo-list__item-left-wrapper')) {
       currentItem.classList.toggle('todo-list__item_completed');
+      saveElement(todoList, 'shopping-list');
     }
   }
 
